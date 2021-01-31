@@ -11,7 +11,7 @@ public class LoginTest {
 	String baseUrl="https://mail.rediff.com/cgi-bin/login.cgi";
 	
 	@Test
-	public void loginTest() {
+	public void loginTest() throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		 
         //Create driver object for Chrome
@@ -19,6 +19,8 @@ public class LoginTest {
  
         //Navigate to a URL
         driver.get(baseUrl);
+        
+        Thread.sleep(3000);
         
         driver.findElement(By.xpath("//input[@id='login1']")).sendKeys("mercury");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("mercury");
